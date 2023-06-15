@@ -23,7 +23,9 @@ const fetchAllPlayers = async () => {
 const fetchSinglePlayer = async (playerId) => {
     try {
         const response = await fetch(`${APIURL}/players/${playerId}`)
-        const player = await response.json();
+        const data = await response.json();
+        const player = data.data.player;
+        console.log(player)
         return player;
     } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
@@ -102,7 +104,8 @@ function renderSinglePlayer(player) {
 
     showDetailsButton.addEventListener(("click"), async (event) => {
         const showDetailsById = player.id;
-        await fetchSinglePlayer(showDetailsById);
+        const singlePlayer = await fetchSinglePlayer(showDetailsById);
+        await renderPlayerDetails(singlePlayer);
     })
 
     const deleteButton = document.createElement("Button");
@@ -110,11 +113,20 @@ function renderSinglePlayer(player) {
     PlayerCard.appendChild(deleteButton);
 
     deleteButton.addEventListener(("click"),async (event) => {
-        //console.log(player)
         const deletePlayerById = player.id;
-        //console.log(deletePlayerById)
         await removePlayer(deletePlayerById);
+        PlayerCard.remove();
     })
+
+    const renderPlayerDetails = async (player) => {
+        const playerInfo = document.createElement("h2");
+        playerInfo.textContent = `Breed: ${player.breed}
+        CohortId: ${player.cohortId}
+        status: ${player.status}
+        TeamId: ${player.teamId}
+        `;
+        PlayerCard.appendChild(playerInfo);
+    }
 
     return PlayerCard;
 }

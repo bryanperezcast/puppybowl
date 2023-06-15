@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  font-size: 17px;
+  font-size: 12px;
   }
 #all-players-container{
   display: flex;
@@ -24,9 +24,14 @@
   margin-bottom: 100px;
 }
 img{
-  height: 75%;
-  width: 75%;
+  height: 50%;
+  width: 50%;
 }
 body{
   background-color: antiquewhite;
 }
+h2{
+  font-size:12px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
