@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+.player-card{
+  border: solid black 1px;
+  width: 16vw;
+  height: 20vh;
+  background-color: #8ABD91  ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 17px;
+  }
+#all-players-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+img{
+  height: 75%;
+  width: 75%;
+}
+body{
+  background-color: antiquewhite;
+}
